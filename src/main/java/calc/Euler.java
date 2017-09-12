@@ -418,4 +418,25 @@ public class Euler {
 		return count;
 	}
 
+	public static long longestCollatzSequence() {
+		long max = 0;
+		for(int i=1; i < 1000000; i++){
+			int n = i;
+			long count = 0;
+			while(n != 1){
+				if(n % 2 == 0){
+					n = n/2;
+				} else {
+					n = 3 * n + 1;
+				}
+				System.out.println(count);
+				count++;
+			}
+			if(count > max) {
+				max = count;
+			}
+		}
+		return max;
+	}
+
 }
