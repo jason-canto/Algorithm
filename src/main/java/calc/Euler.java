@@ -475,15 +475,32 @@ public class Euler {
 
 	public static List<Long> getDivisorsList(long n) {
 		List<Long> divisors = new ArrayList<Long>();
-		for(long i=1; i <= Math.sqrt(n); i++){
-			if(n % i == 0){
+		for (long i = 1; i <= Math.sqrt(n); i++) {
+			if (n % i == 0) {
 				divisors.add(i);
-				if(i != Math.sqrt(n)){
-					divisors.add(n/i);
+				if (i != Math.sqrt(n)) {
+					divisors.add(n / i);
 				}
 			}
 		}
 		return divisors;
+	}
+
+	public static String factorToString(int n) {
+		BigDecimal total = new BigDecimal(n);
+		for (int i = n-1; i > 0; i--) {
+			total = total.multiply(new BigDecimal(i));
+		}
+		return total.toPlainString();
+	}
+
+	public static int sumOfFactors(int n){
+		String bigNumber = factorToString(n);
+		int total = 0;
+		for(int i=0; i < bigNumber.length(); i++){
+			total += Character.getNumericValue(bigNumber.charAt(i));
+		}
+		return total;
 	}
 
 }
