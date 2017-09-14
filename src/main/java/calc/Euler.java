@@ -488,16 +488,16 @@ public class Euler {
 
 	public static String factorToString(int n) {
 		BigDecimal total = new BigDecimal(n);
-		for (int i = n-1; i > 0; i--) {
+		for (int i = n - 1; i > 0; i--) {
 			total = total.multiply(new BigDecimal(i));
 		}
 		return total.toPlainString();
 	}
 
-	public static int sumOfFactors(int n){
+	public static int sumOfFactors(int n) {
 		String bigNumber = factorToString(n);
 		int total = 0;
-		for(int i=0; i < bigNumber.length(); i++){
+		for (int i = 0; i < bigNumber.length(); i++) {
 			total += Character.getNumericValue(bigNumber.charAt(i));
 		}
 		return total;
