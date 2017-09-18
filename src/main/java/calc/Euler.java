@@ -503,4 +503,17 @@ public class Euler {
 		return total;
 	}
 
+	public static String routesGrid(int n, int k) {
+		BigDecimal result = new BigDecimal(1);
+
+		for (long i = n; i > n - k; i--) {
+			result = result.multiply(new BigDecimal(i));
+		}
+
+		for (long i = k; i > 1; i--) {
+			result = result.divide(new BigDecimal(i));
+		}
+		return result.toPlainString();
+	}
+
 }
